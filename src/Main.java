@@ -19,10 +19,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //Определяем Connection, StringBuilder и Scanner
         HttpURLConnection connection;
-        Scanner scaner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         System.out.print("Добро пожаловать в программу поиска. Выберите язык поиска: 1-Русский 2-English:");
-        int language = scaner.nextInt();
+        int language = sc.nextInt();
         //В зависимости от выбраного языка определяем начало http запроса
         //exsentences=10 - Выберает первые 10 предложений
         //prop=extracts указывает на возвращение текста или ограниченого html
@@ -40,13 +40,13 @@ public class Main {
             }
         }
         //Получаем текст запроса
-        Scanner scanerQuery = new Scanner(System.in);
+        Scanner scQuery = new Scanner(System.in);
         System.out.print("Пожалуйста, введите ваш запрос: ");
-        String query = scanerQuery.nextLine();
+        String query = scQuery.nextLine();
 
         //Добавляем к http запросу наш текст запроса
         sb.append(URLEncoder.encode(query.replace(" ","_"), "UTF-8"));
-        scanerQuery.close();
+        scQuery.close();
 
 
         //Посмотреть url запроса
